@@ -6,6 +6,7 @@ stages:
   - checkstyle
   - test
   - Integration Test
+  - Deploy Snapshot
 
 jdk:
   - oraclejdk9
@@ -37,6 +38,11 @@ matrix:
     jdk: openjdk7
     script: mvn clean verify -Pcheckstyle -Dmaven.test.skip=true -B
     env: CHECKSTYLE=6.11.2
+  - stage: Deploy Snapshot
+    env:
+      - secure: "Sg4MZxGaLQd/3PdKMQGLZkLITd9YNrf2xJX8919/91f5jqxXYEX8hhgpGaYvlrlINAhQrwp3X78fNHiIAsDso9frRMjLMNNjn1mXQitXwuw9Ge9de029MG00HARpg8sz8ig3POIeD8wxtN0heGW6B4P+rB/+yxTCFsNPlOK+FwF1YOCO+2PSEGgrA0MLgXugDyoQLqr6r5hNntXs++i+0uxj2HXYyfPJv2rl81j3nbuNdw1htcgk9HvducSZBtlDGcxN3bvZo/5oerTEZk2yQ4g6qlOBaFWXv0eY70AYngcKmZT9tgkGIw8652uYWZ6j/rC8PYh5Uo7d0J0VCaMrKGDiUisq6B0jFrtQgSMVi+SGy3CXu9fLw8S9L6y8oHuBFqWQ8sDoeH2pFOhoCkwwo12mHhvh+bDxopt/tG6NDrYiZdWC7bfVJpM0aWtfQl5+WfKAJb2ioXLW7BcKddk3ybxjSdUN/giktKJrPpp4tVp/RQWVn7v3w5yUyTrwF4AwVGPFSyqd3u8UmGfmefg8P17cJydcwUQX8K771nT4FCsO5QZeA0gqx6D0adETT6CAn/alOEPD2x7fQPezYNVZHUexAgHOkGo+uHPybAbHQnfuZ+qy+EEs33ljnAS/ZkttJD5kl31iNjeoVk/XtHtgHybnCyTjLRNPZJnG4AzefBE="
+      - secure: "ydu9IIKmz3vr+QGWhxnqsRwJ+Xj7w7SPLaxi/9aOndpNa6w7kQWX0N4iUkwW9sWE3Qv7LMsqH9uNg8YSJLCSube2G8pVPJA+4rYzs4Fs+FiG7xmKOPAsMqQoTYgBK+FOB4Pk9C8Q9anNeGMztYJpKaxPoLGNTnTC3eRYx/NDudkZhHxUNtoFz0BmB6tflqCgj60j3y6tZ/XNldpgbYRfj8l7ujuLCDYZV3BZ3IfPyjR9mwJaCHImcK5uUiygz9mKr0WhoJ9V/2BGDMtb8qptRnWNVEJXI3w6B5nqH+C2Nzg1oQHvvibBXodZUaybzvDUKLKVD1dwVaPnewwJJj5tXUzap1SsEITAlcVNlDV8rxcHOqozC08DImgwN6fUz+q1/jBYC7gvVbslWdyaNHdSgWdExZUH/8qjLtLO1vuh4DwWFXGUacf+2kQYUaR9KbfPUvsCsvf4vYQ9iy8YJDJADDuOjCYNsZcMBJo0UwbXWWcQ4brh1ZfMw+mKqCO2cVDjubRGQZSpuzZ37imCGZ8GEXdfJQn/iB7Fdiia/8pWSCHrY2DvDJcghht5WbhxcQSHobR/Igya6l49G1rVfucRIQHXE+nGVMWs4yjKTRsD4LpT41yq1BlFYzzeJ3UnG0WnbDY2SJeJHosjhuPofEuo94NkKAXKwXuTwXOGzGdntH8="
+    script: mvn clean deploy --settings=".buildscript/settings.xml"
 
 install:
   - if [[ -n "${CUSTOM_MVN_VERION}" ]]; then
