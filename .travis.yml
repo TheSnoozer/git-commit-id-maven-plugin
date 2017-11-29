@@ -42,7 +42,7 @@ matrix:
     env:
       - secure: "O8vcr3/xveznObGBsEbiNRF1ygzSmvpYQ0XoMh2AYnSEi24tLIn1JLpMS7B02XS82rSv/3CLAs/hYjrXrwqf88MG+o5GqFwgj2IEde+1OKTO08L+NxUHY4BzOBkTEqH4a/WGt4lzNA6mEj+aJdbo8aAtGlzeRdCsKsFmMJLIo+OUhAQdhYf14hnjnch7TBaMlgtJx7ECKX3hAbJIKamWZ8zkPjWuTFgWq1VMSkNGnqDTaKlSQ1I/wYesSAmebT5N9wSLAZab6qMnbeax+fk71lwG54Cm9ttuLpFhyuwn03t4b36+fiEZUDavTR/OrppZckiGIf8NQjo4KKbyFeDGJB3d6dHZ+4lqDz/Pc2E3YdmbGDFDp/I7YtUN+0QO+xt3HIIrEaAUv0QskswWF2gfapwj0BFY34BC4YNgUDwGSgMG9sSj4oaKBPYLueNLyUnBHlzKxko1pcgThsSlrnP0bCBXl9RaGUyb7RtCPpMejAdJAR88dMQEZnQqVC2RptViT/SGjeLTxJYeUaj5IpkSOg+OJRKKq8JTKW4yIsVIFTV1P1M/3ko8zTK5ij1wPFVRqSFCLaz3h/X2NHbm05LIgQrXE/enJzCWQscRrf1LiF123szfO6fZtMehyZXuP9WTfToBpGf50wkn6zl7PmOcJjNDxeaHbsroavPUEzkBRus="
       - secure: "piuHS9J3I5hu65+57dOD0hhczwBrrF4PTHLTHG0WmyK0zWVJab7UHsg4b1FXhJAFMBiTX3KGYJAKfQEHUefxpv8UgWvp4+0A1nu1PLfgo2HRiOEPIOqFzumaPqNGey7fen2qkogEzB8PxyU3wNDdelmrkbH7/jWE5zL/aK8CZ+XjLfCusZjnp1H7/jH5YoAjAHtK3bzyBGC8Dv34pStJEvCysfp7RbeJzojeyafF/uQfJU0Vw0215kVV0+LezS0W2MQR9fWe0rCzpss4BWIj/+wi6Aln4dPAYF813pN7z+5asCGYrK1oFQ753z6+AceOaXYSt2PxTTpn+xHGzvjL7F7HjltIsU1Aa/VWblgwgzUEQsXaNIJuPB6YKT53/gtBDk4BQ1zjakvu3MpZEmtNhLKz0TXuR6GqO1AbU8hmimMuLo92hUbahxV4dUKNh2y34zPxx663ShMgYrZmsk2KkcijETnYKOm8LSK0CVbTQssVqp2TSd6j+jDzZPNXBe/YnvGU4WgIJGCfttFHo1pLuw6whXhv/CCkNZnJXnarbIQCF6w/GJZB1fi/LWo7CoYYwAZZOGr9PpLGAOTijhob49qMPLoqK3ifoFs3mbYcqozYzAq+X6boVujRwL57AFI3VHBIJ2cgR1KyeFHPIABWy0qnenfIbrAW3E/GWTMedfg="
-    script: 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash mvn clean deploy --settings=".buildscript/settings.xml"; fi'
+    script: 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then mvn clean deploy --settings=".buildscript/settings.xml"; fi'
 
 install:
   - if [[ -n "${CUSTOM_MVN_VERION}" ]]; then
