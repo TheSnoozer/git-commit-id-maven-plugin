@@ -84,6 +84,8 @@ jobs:
           # Include it before `-m2-` to prevent other cache actions' restore-keys matching it
           key: ${{ runner.os }}-maven-${{ matrix.maven_version }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-maven-${{ matrix.maven_version }}-m2
+      - name: Test if the setup of Maven ${{ matrix.maven_version }} worked
+        run: mvn -version
       - name: Install a test version with Maven
         run: mvn clean install -B
       - name: Run the local testversion with Maven
